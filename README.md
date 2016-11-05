@@ -14,3 +14,19 @@ Build Steps:
 5. Connect OSD, 5V Regulator and Slave HC-05 (Optional: Ground battery to the osd battery input) to video receiver and monitor.
 
 6. enjoy :)
+
+
+useful links:
+https://github.com/opentx/opentx/wiki/Taranis-serial-port
+https://oscarliang.com/ctt/uploads/2015/12/sbus-inverter-diagram-schematics.jpg
+http://www.banggood.com/10Pcs-Mini-DC-Adjustable-Power-Supply-Buck-Module-Step-Down-Module-p-999753.html
+http://www.banggood.com/HC-05-Wireless-Bluetooth-Serial-Module-With-Baseplate-For-Arduino-p-959393.html
+http://www.banggood.com/HC-05-Wireless-Bluetooth-RF-Transceiver-Module-For-Arduino-p-74220.html
+http://www.banggood.com/MICRO-MinimOSD-Minim-OSD-Mini-OSD-W-KV-Team-MOD-For-Naze32-Flight-Controller-p-990556.html
+
+
+Special Thanks to:
+https://github.com/opentx/opentx
+https://github.com/UncleRus/MultiOSD
+https://github.com/markohoepken/rx5808_pro_osd
+https://github.com/iNavFlight/inav
