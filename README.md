@@ -3,11 +3,11 @@ Ground OSD based on (micro)minimosd and a HC-05 BT Module. Telemetry - Data (S.P
 
 Build Steps:
 
-1. Get the Hardware 2 x HC-05 Module , MicroMinimOsd , 2 x 5V Regulator , inverter for s.bus , 2s balancer plug
+1. Get the Hardware 2 x HC-05 Module , MicroMinimOsd , 2 x 5V Regulator , inverter for s.bus , plug for Taranis uart port
 
 2. Config one HC-05 as master, set the baudrate 57600 , connect with the other HC-05
 
-3. Connect balancer plug , 5V Regulator , Master HC-05 and place it in the Taranis battery tray
+3. Connect uart port plug , 5V Regulator , Master HC-05 and place it in the Taranis battery tray
 
 4. Config your OSD in function void vUpdateOsd() and flash the osd
 
