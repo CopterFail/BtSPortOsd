@@ -7,11 +7,11 @@ Build Steps:
 
 2. Config one HC-05 as master, set the baudrate 57600 , pair with the other slave HC-05
 
-3. Connect uart port plug , 5V Regulator , Master HC-05 and place it in the Taranis battery tray
+3. Connect uart port plug , 5V Regulator , Slave HC-05 and place it in the Taranis battery tray
 
 4. Config your OSD in function void vUpdateOsd() and flash the osd
 
-5. Connect OSD, 5V Regulator and Slave HC-05 (Optional: Ground battery to the osd battery input) to video receiver and monitor.
+5. Connect OSD, 5V Regulator and Master HC-05 (Optional: Ground battery to the osd battery input) to video receiver and monitor.
 
 6. enjoy :)
 
