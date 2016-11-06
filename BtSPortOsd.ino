@@ -151,34 +151,54 @@ extern uint8_t u8telcnt;
 void vUpdateOsd( void )
 {
     static char buffer[30];
-    static float uground=7.4;
+    static float uground=7.4f;
+    static float ucopter=7.4f;
+    //static float utaranis=7.4f;
     static uint8_t u8BtLive=0;
     static uint32_t u32LastCount = 0;
     
     teldata.vUpdateGpsModel();
     uground = 0.9 * uground + 0.1 * (float)(analogRead( 2 )) / 59.0f;
+    if( teldata.u16UavBatt2 > 100 ) // use VFAS for Coptervoltage if it is bigger than 1V
+    {
+      ucopter = 0.5 * uground + 0.5 * (float)(teldata.u16UavBatt2 * 0.01f);
+    }
+    else  // in the other case use the frsky rx voltage
+    {
+      ucopter =  0.5 * uground + 0.5 * (float)(teldata.u8UavRxBatt) * 3.3 * 4 / 255; 
+    }
+    //utaranis = 0.5 * uground + 0.5 * (float)(teldata.u8UavRxBatt) * 3.3 * 4 / 255; 
 
-    // Battery data:
+    // Battery data (3 symbols for Base, Model, Transmitter):
     osd_print_char( 2, 2, 'B');
     vPrintBattery(  3, 2, uground );
     osd_print_char( 4, 2, 'M');
-    //vPrintBattery(  5, 2, (float)teldata.u16UavBatt2 * 0.01 );
-    sprintf( buffer, " %02d.%02d ", teldata.u16UavBatt2 / 100 ,teldata.u16UavBatt2 % 100 );
-    osd_print(5,2,buffer);    
-    
+    vPrintBattery(  5, 2, ucopter );
     //osd_print_char( 6, 2, 'T');
     //vPrintBattery(  7, 2, transmitter battery ? );
 
+    //sprintf( buffer, " %02d.%02d ", teldata.u16UavBatt2 / 100 ,teldata.u16UavBatt2 % 100 );
+    //osd_print(2,3,buffer);    
+    
+
     // GPS data:
-    if( teldata.u8UavSatCnt >= 4 ){
+    if( teldata.u8UavSatCnt >= 4 )
+    {
       sprintf( buffer, "D%04d ", (uint32_t)teldata.fHomeDistance );
       osd_print(24,2,buffer);    
       vPrintArrow( 14, 12, teldata.fHomeDirection );
     }
+    else
+    {
+      osd_print(24,2,"NoSat"); 
+      osd_print(14,12,"xx");       
+    }
+
+    // Baro altidude:
     sprintf( buffer, "H%03d ", teldata.i16UavBaroAlt );
     osd_print(24,3,buffer);    
 
-    // Signal data:
+    // Signal data strength (RSSI, SAT):
     sprintf( buffer, "%c%02d ", CHAR_FUNKE, teldata.u8UavRssi );
     osd_print(24,4,buffer);    
     sprintf( buffer, "%c%c%02d ", CHAR_SAT, CHAR_SAT+1, teldata.u8UavSatCnt );
@@ -199,7 +219,6 @@ void vUpdateOsd( void )
 
     //alternative: dtostrf
     //dtostrf(uground, 3, 2, buffer );
-
 
 }
 

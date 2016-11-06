@@ -5,7 +5,7 @@ Build Steps:
 
 1. Get the Hardware 2 x HC-05 Module , MicroMinimOsd , 2 x 5V Regulator , inverter for s.bus , plug for Taranis uart port
 
-2. Config one HC-05 as master, set the baudrate 57600 , connect with the other HC-05
+2. Config one HC-05 as master, set the baudrate 57600 , pair with the other slave HC-05
 
 3. Connect uart port plug , 5V Regulator , Master HC-05 and place it in the Taranis battery tray
 
@@ -29,6 +29,8 @@ http://www.banggood.com/HC-05-Wireless-Bluetooth-Serial-Module-With-Baseplate-Fo
 http://www.banggood.com/HC-05-Wireless-Bluetooth-RF-Transceiver-Module-For-Arduino-p-74220.html
 
 http://www.banggood.com/MICRO-MinimOSD-Minim-OSD-Mini-OSD-W-KV-Team-MOD-For-Naze32-Flight-Controller-p-990556.html
+
+http://www.instructables.com/id/AT-command-mode-of-HC-05-Bluetooth-module/?ALLSTEPS
 
 
 Special Thanks to:
